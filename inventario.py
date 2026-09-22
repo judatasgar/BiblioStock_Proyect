@@ -1,14 +1,19 @@
 from validaciones import (
     normalizar_codigo,
-    capitalizar_texto,
-    codigo_existe,
+    normalizar_texto,
+    quitar_tildes,
     pedir_entero_positivo
 )
 
+# Esta funcion registra un item en el inventario
+
 def registrar_item(inventario):
     codigo = input("Ingrese el codigo del item: ")
+    codigo = normalizar_codigo(codigo)
     
-    if 
+    if any(item["codigo"] == codigo for item in inventario):
+        print("El codigo ya existe en el inventario. No se puede registrar el item.")
+        return
 
 # esta funcion muestra todos los items del inventario 
 
