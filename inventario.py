@@ -1,7 +1,9 @@
-from validaciones import (norm_codigo,
-                          capitalizar_texto,
-                          codigo_existe,
-                          pedir_num_postitivo)
+from validaciones import (
+    normalizar_codigo,
+    capitalizar_texto,
+    codigo_existe,
+    pedir_entero_positivo
+)
 
 def registrar_item(inventario):
     pass
