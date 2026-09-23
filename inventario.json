@@ -1,0 +1,11 @@
+[
+ {
+  "codigo": "LIB-001",
+  "titulo": "Cien años de soledad",
+  "autor": "Gabriel García Márquez",
+  "categoria": "Literatura",
+  "cantidad_total": 3,
+  "cantidad_disponible": 3,
+  "ubicacion": "Estante A2"
+ }
+]
