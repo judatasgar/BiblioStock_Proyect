@@ -62,8 +62,9 @@ def display_items(inventario):
     # esta funcion busca un item en el inventario por su codigo y lo muestra si lo encuentra
     
 def buscar_item(inventario):
-    codigo = input("INgresa el codigo del item que deseas buscar: ")
-    
+    codigo = input("Ingresa el codigo del item que deseas buscar: ")
+    codigo = normalizar_codigo(codigo, [item["codigo"] for item in inventario])
+
     for item in inventario:
         if item["codigo"] == codigo:
             print("Item encontrado:")
@@ -75,4 +76,4 @@ def buscar_item(inventario):
             print("Cantidad disponible:", item["cantidad_disponible"])
             print("Ubicacion:", item["ubicacion"])
             return
-    print("Item no encontrado.")    
+    print("Item no encontrado.")
