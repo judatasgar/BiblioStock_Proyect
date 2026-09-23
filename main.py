@@ -4,7 +4,7 @@ from prestamos import registrar_prestamo, registrar_devolucion
 
 def mostrar_menu():
     print("\n==========================================")
-    print("BIBLIOSTOCK CLI - BIBLIOTECA HORIZONTE")
+    print("BIBLIOSTOCK CLI - SISTEMA DE BIBLIOTECA HORIZONTE")
     print("==========================================")
     print("1. Registrar ítem")
     print("2. Listar ítems")
