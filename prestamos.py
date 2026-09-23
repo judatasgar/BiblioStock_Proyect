@@ -30,4 +30,23 @@ def registrar_prestamo(inventario, prestamos):
     prestamos.append(nuevo_prestamo)
  
     print(f"\nPréstamo registrado: '{item['titulo']}' a nombre de {persona}.")
+
+# Esta funcion registra devolucion de un iten previamente prestado
  
+def registrar_devolucion(inventario, prestamos):
+    print("\n--- Registrar devolución ---")
+    codigo = input("Ingrese el código del ítem a devolver: ")
+    codigo = normalizar_codigo(codigo)
+ 
+    prestamo = next((p for p in prestamos if p["codigo"] == codigo and p["estado"] == "prestado"), None)
+    if prestamo is None:
+        print("No se encontró un préstamo activo con ese código.")
+        return
+ 
+    prestamo["estado"] = "devuelto"
+ 
+    item = next((i for i in inventario if i["codigo"] == codigo), None)
+    if item is not None:
+        item["cantidad_disponible"] += 1
+ 
+    print(f"\nDevolución registrada: '{prestamo['titulo']}' devuelto por {prestamo['persona']}.")
