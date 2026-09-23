@@ -5,7 +5,7 @@ from validaciones import normalizar_codigo, normalizar_texto
 def registrar_prestamo(inventario, prestamos):
     print("\n--- Registrar préstamo ---")
     codigo = input("Ingrese el código del ítem a prestar: ")
-    codigo = normalizar_codigo(codigo)
+    codigo = normalizar_codigo(codigo, [item["codigo"] for item in inventario])
  
     item = next((i for i in inventario if i["codigo"] == codigo), None)
     if item is None:
@@ -17,8 +17,7 @@ def registrar_prestamo(inventario, prestamos):
         return
  
     persona = input("Nombre de quien solicita el préstamo: ")
-    persona = normalizar_texto(persona)
- 
+    persona = normalizar_texto(persona, [p["persona"] for p in prestamos])
     item["cantidad_disponible"] -= 1
  
     nuevo_prestamo = {
@@ -36,7 +35,7 @@ def registrar_prestamo(inventario, prestamos):
 def registrar_devolucion(inventario, prestamos):
     print("\n--- Registrar devolución ---")
     codigo = input("Ingrese el código del ítem a devolver: ")
-    codigo = normalizar_codigo(codigo)
+    codigo = normalizar_codigo(codigo, [item["codigo"] for item in inventario])
  
     prestamo = next((p for p in prestamos if p["codigo"] == codigo and p["estado"] == "prestado"), None)
     if prestamo is None:
